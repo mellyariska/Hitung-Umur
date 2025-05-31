@@ -1,7 +1,8 @@
 from flask import Flask, render_template_string, request
 from datetime import datetime
+import os
 
-app = Flask(__name__)
+app = Flask(__name__)  # ← Penting! Harus bernama 'app'
 
 HTML = '''
 <!DOCTYPE html>
@@ -35,4 +36,5 @@ def index():
     return render_template_string(HTML, hasil=hasil)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
