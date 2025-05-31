@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[ ]:
-
-
 from flask import Flask, render_template_string, request
 from datetime import datetime
 
@@ -40,9 +34,5 @@ def index():
             hasil = "Tahun lahir harus berupa angka!"
     return render_template_string(HTML, hasil=hasil)
 
-    import os
-port = int(os.environ.get("PORT", 5000))
-
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=port)
-
+    app.run(debug=True)
